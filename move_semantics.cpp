@@ -58,7 +58,7 @@ class Entity
 
         }
         Entity(String&& name)
-            :m_Name(std::move(name))
+            :m_Name(std::move(name)) // move constructor
         {
 
         }
