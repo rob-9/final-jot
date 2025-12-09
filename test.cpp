@@ -1,25 +1,49 @@
-class DArray {
-private:
-    int* data;
-    int size;
-public:
-    DArray(int s) : size(s) {
-        data = new int[size];
-    }
+#include <iostream> 
 
-    DArray(const DArray& other) : size(other.size) {
-        data = new int[size];
-        for (int i=0; i<size; ++i)
-            data[i] = other.data[i];
-    }
-    
-    ~DArray() {
-        delete[] data;
-    }
+class Time {
+    private:
+        int hrs;
+        int min;
+        int sec;    
+    public:
+        Time() : hrs(0), min(0), sec(0) {}; // default constructor
+        Time(int h, int m, int s) : hrs(h), min(m), sec(s) {} // params
+
+        void print() const {
+            std::cout << hrs << ':' << min << ':' << sec << std::endl;
+        }
+
+        static const int test = 5;
 };
 
+bool streq(const char* lhs, const char* rhs) {
+    while (*lhs && *rhs) 
+    {
+        if (lhs == nullptr && rhs == nullptr) return true;
+        if (lhs == nullptr || rhs == nullptr) return false;
+        if (*lhs != *rhs) return false;
+        lhs++;
+        rhs++;
+    }
+    return true;
+}
+
 int main() {
-    DArray arr1(10);
-    DArray arr2 = arr1;  // What happens here?
-    // When main ends, what happens?
+    // Time time;
+    // Time time2(5, 5, 5);
+
+    // time.print();
+    // time2.print();
+
+    // Time timeArray[5] = {};
+    // for (int i=0; i<5; ++i) 
+    //     timeArray[i].print();
+
+    char name[] = "robert";
+    char last[] = "robert";
+
+    char* nameptr = name;
+    char* lastptr = last;
+
+    std::cout << streq(nameptr, lastptr);
 }
